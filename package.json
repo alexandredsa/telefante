@@ -1,0 +1,22 @@
+{
+  "name": "telefante-bot",
+  "version": "1.0.0",
+  "description": "Telefone Sem Fio Bot para Discord",
+  "main": "bot.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node bot.js"
+  },
+  "keywords": [
+    "telefante",
+    "bot",
+    "discord"
+  ],
+  "author": "Alexandre Alves",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.10.7"
+  }
+}
