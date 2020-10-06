@@ -43,21 +43,28 @@ client.on('message', async msg => {
     }
 
     const sanitizedContent = removePrefix(content);
+    const cmd = getCommand(sanitizedContent);
+
+    if (!cmd) {
+        await msg.author.send('Foi mal, brother... Não entendi');
+        return;
+    }
 
     if (isDirectMessage(msg)) {
-        const cmd = getCommand(sanitizedContent);
-        if (!cmd) {
-            await msg.author.send('Foi mal, brother... Não entendi');
-            return;
-        }
-
         if (!cmd.worksOn().includes(VALID_SCOPES.DM)) {
             await msg.author.send('Amigo.. Isso aqui é só no canal. Nem vem com intimidade.');
         }
     } else {
-        if (hasBotPrefix(content)) {
-            await msg.channel.send('chamou xamps?');
+        if (!hasBotPrefix(content)) {
+            return;
         }
+
+        if (!cmd.worksOn().includes(VALID_SCOPES.CHANNEL)) {
+            await msg.author.send('Amigo.. Isso aqui é só no pvt. Não começa.');
+            return;
+        }
+        cmd.run({ msg });
+        await msg.channel.send('chamou xamps?');
     }
     //  msg.guild.members.client.users Map
     // msg.attachments Map
