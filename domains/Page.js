@@ -1,7 +1,7 @@
 class Page {
-    constructor(content, type, author) {
+    constructor(content, contentType, author) {
         this.content = content;
-        this.type = type;
+        this.contentType = contentType;
         this.author = author;
     }
 }
