@@ -10,7 +10,7 @@ const Game = require('./domains/Game');
 
 const { DISCORD_TOKEN, MONGO_URI } = process.env;
 const { getCommand } = require('./commands');
-const { VALID_SCOPES } = require('./commands/constants');
+const { VALID_SCOPES } = require('./commons/constants');
 
 const runningGames = {};
 

@@ -1,5 +1,5 @@
 const Game = require('../domains/Game');
-const { VALID_SCOPES } = require('./constants');
+const { VALID_SCOPES } = require('../commons/constants');
 const DiscordMessageHandler = require('../helpers/DiscordMessageHandler');
 
 class StartCommand {
