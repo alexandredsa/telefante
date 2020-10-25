@@ -9,5 +9,15 @@ const PLAYER_STATUS = {
     FINISHED: 'FINISHED',
 }
 
+const PAGE_STATUS = {
+    PENDING: 'PENDING',
+    DELIVERED: 'DELIVERED',
+}
 
-module.exports = { PLAYER_STATUS, VALID_SCOPES };
+const CONTENT_TYPES = {
+    TEXT: 'TEXT',
+    IMAGE: 'IMAGE',
+}
+
+
+module.exports = { CONTENT_TYPES, PAGE_STATUS, PLAYER_STATUS, VALID_SCOPES };

@@ -3,15 +3,18 @@ const mongoose = require('mongoose');
 const PageSchema = mongoose.Schema({
     content: {
         type: String,
-        required: true,
     },
     contentType: {
         type: String,
-        enum: ['TITLE', 'IMAGE']
+        enum: ['TEXT', 'IMAGE']
     },
     author: {
         type: String,
         required: true,
+    },
+    status: {
+        type: String,
+        enum: ['PENDING', 'DELIVERED']
     }
 });
 

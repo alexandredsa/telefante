@@ -63,8 +63,12 @@ client.on('message', async msg => {
             await msg.author.send('Amigo.. Isso aqui é só no pvt. Não começa.');
             return;
         }
-        cmd.run({ msg });
-        await msg.channel.send('chamou xamps?');
+        const { requests, game } = await cmd.run({ msg });
+        const msgRequests = requests.map(async request => {
+            const userClient = await client.users.fetch(request.to);
+            return userClient.send(request.content);
+        });
+        await Promise.all(msgRequests);
     }
     //  msg.guild.members.client.users Map
     // msg.attachments Map

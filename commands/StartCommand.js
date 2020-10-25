@@ -7,9 +7,11 @@ class StartCommand {
         return content.startsWith('iniciar');
     }
 
-    run({ msg }) {
+    async run({ msg }) {
         const members = DiscordMessageHandler.getChannelMembersIdsFromMessage(msg);
-        return new Game({ members });
+        const game = new Game({ members });
+        const requests = await game.start();
+        return { requests, game };
     }
 
     worksOn() {
