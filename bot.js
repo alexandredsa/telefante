@@ -7,6 +7,7 @@ const Page = require('./domains/Page');
 const Chapter = require('./domains/Chapter');
 const BookModel = require('./domains/models/BookModel');
 const Game = require('./domains/Game');
+const { isBot } = require('./helpers/DiscordMessageHandler');
 
 const { DISCORD_TOKEN, MONGO_URI } = process.env;
 const { getCommand } = require('./commands');
@@ -24,7 +25,6 @@ const isDirectMessage = (msg) => {
     const { channel } = msg;
     return channel instanceof DMChannel;
 };
-const isBot = (msg) => msg.author.bot;
 
 const removePrefix = (str = '') => {
     const prefix = BOT_PREFIXES.find(pf => str.toLowerCase().startsWith(pf));
